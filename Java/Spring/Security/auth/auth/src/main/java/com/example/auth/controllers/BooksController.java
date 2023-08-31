@@ -5,7 +5,7 @@ import com.example.auth.domain.books.Books;
 import com.example.auth.domain.books.request.BookPostRequest;
 import com.example.auth.domain.books.request.BookPutRequest;
 import com.example.auth.domain.books.response.BookResponse;
-import com.example.auth.services.BookService;
+import com.example.auth.services.books.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

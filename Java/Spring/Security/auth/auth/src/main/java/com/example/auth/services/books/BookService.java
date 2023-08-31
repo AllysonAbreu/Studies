@@ -1,4 +1,4 @@
-package com.example.auth.services;
+package com.example.auth.services.books;
 
 import com.example.auth.domain.books.Books;
 import com.example.auth.domain.books.request.BookPostRequest;
