@@ -16,4 +16,4 @@ mvn clean install
 3. Install or use a PostgresSql service and add the credentials in ```application.yaml``` file.
 4. The application will run on ```localhost:8080```. You can use [Postman](https://www.postman.com/) or [Insominia](https://insomnia.rest/download) to test the endpoints.
 5. Don't forget to add the ```Authorization``` header with the ```Bearer``` token to access the protected endpoints.
-6. Download the [Postman collection]().
+6. Download the [Postman collection](https://github.com/AllysonAbreu/Studies/blob/main/PostmanCollections/Spring/Auth%20API.postman_collection.json).
