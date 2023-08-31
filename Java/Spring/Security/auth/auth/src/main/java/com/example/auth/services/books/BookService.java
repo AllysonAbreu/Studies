@@ -1,6 +1,6 @@
 package com.example.auth.services.books;
 
-import com.example.auth.domain.books.Books;
+import com.example.auth.domain.books.Book;
 import com.example.auth.domain.books.request.BookPostRequest;
 import com.example.auth.domain.books.request.BookPutRequest;
 import com.example.auth.domain.books.response.BookResponse;
@@ -21,16 +21,16 @@ public class BookService {
 
     public List<BookResponse> getAllBooks() {
         try {
-            List<Books> all = repository.findAll();
+            List<Book> all = repository.findAll();
             return toListResponse(all);
         } catch (Exception e) {
-            throw new RuntimeException("Books not found");
+            throw new RuntimeException("Book not found");
         }
     }
 
     public BookResponse getBookById(int id) {
         try {
-            Books existingBook = repository.findById(id).orElse(null);
+            Book existingBook = repository.findById(id).orElse(null);
             isNull(existingBook);
             return toResponse(existingBook);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class BookService {
 
     public void updateBook(BookPutRequest book) {
         try {
-            isNull(repository.findById(book.getId()).orElse(null));
+            isNull(repository.findById(book.id()).orElse(null));
             repository.save(requestPutToDomain(book));
         } catch (Exception e) {
             throw new RuntimeException("Book not found");

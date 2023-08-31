@@ -3,13 +3,15 @@ package com.example.auth.domain.books;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.sql.Timestamp;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Table(name = "books")
+@Entity(name = "books")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,7 +19,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Builder
 @EqualsAndHashCode(of = "id")
 @ToString(of = "id")
-public class Books {
+public class Book {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
@@ -25,7 +27,7 @@ public class Books {
     private String author;
     private String description;
     private String image;
-//    private Integer inserted_by;
-    private Timestamp created_at;
-    private Timestamp updated_at;
+    private Integer insertedBy;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 }

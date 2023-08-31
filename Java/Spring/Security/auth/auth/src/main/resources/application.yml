@@ -17,3 +17,7 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
+api:
+  security:
+    token:
+      secret: ${JWT_TOKEN:minhachavesecreta}

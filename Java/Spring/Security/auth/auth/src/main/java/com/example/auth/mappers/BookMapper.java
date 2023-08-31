@@ -1,48 +1,52 @@
 package com.example.auth.mappers;
 
-import com.example.auth.domain.books.Books;
+import com.example.auth.domain.books.Book;
 import com.example.auth.domain.books.request.BookPostRequest;
 import com.example.auth.domain.books.request.BookPutRequest;
 import com.example.auth.domain.books.response.BookResponse;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import static com.example.auth.utils.DateUtils.stringToLocalDate;
 
 public class BookMapper {
-    public static BookResponse toResponse(Books existingBook) {
+    public static BookResponse toResponse(Book existingBook) {
         return BookResponse.builder()
                 .id(existingBook.getId())
                 .title(existingBook.getTitle())
                 .author(existingBook.getAuthor())
                 .description(existingBook.getDescription())
                 .image(existingBook.getImage())
-//                .inserted_by(existingBook.getInserted_by())
-                .created_at(stringToLocalDate(existingBook.getCreated_at()))
-                .updated_at(stringToLocalDate(existingBook.getUpdated_at()))
+                .insertedBy(existingBook.getInsertedBy())
+                .createdAt(stringToLocalDate(existingBook.getCreatedAt()))
+                .updatedAt(stringToLocalDate(existingBook.getUpdatedAt()))
                 .build();
     }
 
-    public static List<BookResponse> toListResponse(List<Books> all) {
+    public static List<BookResponse> toListResponse(List<Book> all) {
         return all.stream().map(BookMapper::toResponse).toList();
     }
 
-    public static Books requestPostToDomain(BookPostRequest book) {
-        return Books.builder()
-                .title(book.getTitle())
-                .author(book.getAuthor())
-                .description(book.getDescription())
-                .image(book.getImage())
+    public static Book requestPostToDomain(BookPostRequest book) {
+        return Book.builder()
+                .title(book.title())
+                .author(book.author())
+                .description(book.description())
+                .image(book.image())
+                .insertedBy(book.insertedBy())
+                .createdAt(Timestamp.from(java.time.Instant.now()))
                 .build();
     }
 
-    public static Books requestPutToDomain(BookPutRequest book) {
-        return Books.builder()
-                .id(book.getId())
-                .title(book.getTitle())
-                .author(book.getAuthor())
-                .description(book.getDescription())
-                .image(book.getImage())
+    public static Book requestPutToDomain(BookPutRequest book) {
+        return Book.builder()
+                .id(book.id())
+                .title(book.title())
+                .author(book.author())
+                .description(book.description())
+                .image(book.image())
+                .updatedAt(Timestamp.from(java.time.Instant.now()))
                 .build();
     }
 }
