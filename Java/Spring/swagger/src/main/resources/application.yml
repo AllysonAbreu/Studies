@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${NEON_PGSQL_URL:ep-dry-sky-953847.us-east-2.aws.neon.tech/testes_db}?user=${NEON_PGSQL_USER:AllysonAbreu}&password=${NEON_PGSQL_PASSWORD:fXMRb04cuTtG}
+jpa:
+  hibernate:
+    ddl-auto: validate
+    show-sql: true
+  database-plataform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  error:
+    include-message: always
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5lvel %logger{36} - %msg%n"
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+api:
+  security:
+    token:
+      secret: ${JWT_TOKEN:minhachavesecreta}
