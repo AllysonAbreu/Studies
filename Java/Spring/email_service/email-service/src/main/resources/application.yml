@@ -3,3 +3,13 @@ cloud:
     credentials:
       access-key:
       secret-key:
+
+# Specify the path of the OpenAPI documentation
+springdoc:
+  api-docs:
+    path: /api-docs
+  # Specify the path of the Swagger UI
+  swagger-ui:
+    path: /swagger-ui.html
+    # Enable or disable Swagger UI
+    enabled: true
