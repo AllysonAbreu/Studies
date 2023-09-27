@@ -17,7 +17,7 @@ Este projeto é um microserviço construído como parte do desafio da Uber, conf
 1. Clone este repositório em sua máquina local, e altere para branch 'desafio_uber':
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/AllysonAbreu/Studies.git
 
 git checkout desafio_uber
 ```
@@ -31,7 +31,7 @@ git checkout desafio_uber
 3. Execute o projeto.
 
 ## Utilização
-1. No seu navegador, acesse o [swagger](http://localhost:8080/swagger-ui.html) do projeto.
+1. No seu navegador, acesse o [swagger](http://localhost:8080/swagger-ui/index.html) do projeto.
 2. Clique no endpoint 'POST /email/send'.
 3. Clique em 'Try it out'.
 4. Preencha os campos 'from', 'to', 'subject' e 'body' com os dados do e-mail que deseja enviar.
